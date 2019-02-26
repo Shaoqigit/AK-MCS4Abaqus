@@ -5,6 +5,7 @@ Created on Fri Feb 22 16:24:27 2019
 @author: Shoqi WU
 La plupart de programme retrait dans rbaachaoui
 combiant trois partie de l'analyse pour lancer le calcul automatiquement
+corriger le formule de G dans le fichier INP pour E
 """
 
 
