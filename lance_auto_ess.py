@@ -193,7 +193,7 @@ def lancement_calcul(ep,G):
     
   
     oldText = '10400., 0.3'
-    newText = str(G) + ', 0.3'
+    newText = str(2.6*G) + ', 0.3'  #formule G est corrigé E = 2.6*G
     newInpText4=replaceText(oldText,newText,newInpText3) 
     
     
@@ -508,13 +508,14 @@ for fois in range(1,ITER+1,1):
     ind_s2min = 0
     s2min = S2[ind_s2min]
     ev_s2min = k.predict(s2min)
-    sigma = 1.
-    umin = abs(ev_s2min)/sigma
+    sigma_ini = (k.predict_var(s2min))**0.5
+    umin = abs(ev_s2min)/sigma_ini
     if umin < 5:
         
         for j in range(1,len(S2),1):            
             s2 = S2[j]
             ev_s2 = k.predict(s2)
+            sigma = (k.predict_var(s2))**0.5
             u = abs(ev_s2)/sigma
             if u < umin:
                 ev_s2min = ev_s2
